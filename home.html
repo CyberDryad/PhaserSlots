@@ -47,6 +47,12 @@
     var scoreText;
     var score = 0;
 
+    var coinText;
+    var coin;
+
+    var betText
+    var bet;
+
     var rand1, rand2, rand3;
     var item1, item2, item3;
     
@@ -61,8 +67,6 @@
         this.add.image(400, 50, 'coin_back');
         this.add.image(200, 50, 'coin');
         this.add.image(500, 990, 'tbb');
-        this.add.image(780, 990, 'plus');
-        this.add.image(220, 990, 'minus');
 
         item1 = this.add.image(690, 480, '1');
         item2 = this.add.image(960, 480, '2');
@@ -72,6 +76,12 @@
 
         const spinButton = this.add.image(1300, 1008, 'spin');
         spinButton.setInteractive();
+
+        const plusButton = this.add.image(780, 990, 'plus');
+        spinButton.setInteractive();
+        const minusButton = this.add.image(220, 990, 'minus');
+        spinButton.setInteractive();
+
 
         spinButton.on('pointerdown', () => { 
             rand1=(Math.floor(Math.random() * 3)+1);
@@ -90,7 +100,9 @@
             }
             scoreText.setText('Score: ' + score); });
 
+        
     }
+
     </script>
 
 </body>
