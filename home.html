@@ -29,26 +29,34 @@
         this.load.image('back', 'assets/back.jpg');
         this.load.image('upper_back', 'assets/upper_back.png');
         this.load.image('lower_back', 'assets/lower_back.png');
+        this.load.image('win_back', 'assets/win_back.png');
         this.load.image('spin', 'assets/spin/spin_button_animation_00000.png');
 
     }
 
-
+    var text;
+    var score = 0;
     function create ()
     {
-        
+
         this.add.image(960, 540, 'back');
         this.add.image(960, 60, 'upper_back');
         this.add.image(960, 990, 'lower_back');
+        this.add.image(960, 80, 'win_back');
         this.add.image(960, 1008, 'spin');
 
+        text = this.add.text(960, 80, '', { fill: '#00ff00' });
 
         const spinButton = this.add.image(960, 1008, 'spin');
         spinButton.setInteractive();
 
         spinButton.on('pointerover', () => { console.log('pointerover'); });
+        spinButton.on('pointerdown', () => { console.log('pointerdown'); });
+        spinButton.on('pointerdown', () => { score++; });
+        spinButton.on('pointerdown', () => {text.setText('Score: ' + score); });
 
     }
+    
     function update()
     {
     }
