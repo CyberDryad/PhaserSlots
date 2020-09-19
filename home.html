@@ -48,10 +48,10 @@
     var score = 0;
 
     var coinText;
-    var coin;
+    var coin = 1000;
 
-    var betText
-    var bet;
+    var betText;
+    var bet = 0;
 
     var rand1, rand2, rand3;
     var item1, item2, item3;
@@ -73,14 +73,18 @@
         item3 = this.add.image(1230, 480, '3');
 
         scoreText = this.add.text(820, 60, 'Score: 0', { fill: '#FFFFFF', fontSize: 36});
+        coinText = this.add.text(380, 35, coin, { fill: '#FFFFFF', fontSize: 36});
+        betText = this.add.text(480, 990, bet, { fill: '#FFFFFF', fontSize: 36});
+
 
         const spinButton = this.add.image(1300, 1008, 'spin');
         spinButton.setInteractive();
 
         const plusButton = this.add.image(780, 990, 'plus');
-        spinButton.setInteractive();
+        plusButton.setInteractive();
+        
         const minusButton = this.add.image(220, 990, 'minus');
-        spinButton.setInteractive();
+        minusButton.setInteractive();
 
 
         spinButton.on('pointerdown', () => { 
@@ -91,8 +95,6 @@
             item2.setTexture( String(rand2));
             item3.setTexture( String(rand3));
 
-
-            var counter = 0;
             if(rand1 == rand2 && rand2 == rand3)
             {
                 score+= rand1*100+((rand1-1)*200);
@@ -100,6 +102,18 @@
             }
             scoreText.setText('Score: ' + score); });
 
+        plusButton.on('poniterhover', () => {console.log("hover")});
+        plusButton.on('pointerdown', () => { 
+            bet += 100;
+            betText.setText(bet); });
+
+        minusButton.on('pointerdown', () => { 
+            if(bet > 0)
+            {
+                bet -= 100; 
+            }
+            betText.setText(bet);
+        });
         
     }
 
