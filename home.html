@@ -56,12 +56,11 @@
         item3 = this.add.image(1230, 480, '3');
 
         text = this.add.text(820, 60, 'Score: 0', { fill: '#FFFFFF', fontSize: 36});
+        text2 = this.add.text(1000, 100, '', {fill: '#FFFFFF', fontSize: 32});
 
         const spinButton = this.add.image(960, 1008, 'spin');
         spinButton.setInteractive();
 
-        spinButton.on('pointerover', () => { console.log('pointerover'); });
-        spinButton.on('pointerdown', () => { console.log('pointerdown'); });
         spinButton.on('pointerdown', () => { 
             rand1=(Math.floor(Math.random() * 3)+1);
             rand2=(Math.floor(Math.random() * 3)+1);
@@ -70,18 +69,15 @@
             item2.setTexture( String(rand2));
             item3.setTexture( String(rand3));
 
+
+            var counter = 0;
             if(rand1 == rand2 && rand2 == rand3)
             {
-                score+=rand1*100+((rand1-1)*200);
+                score+= rand1*100+((rand1-1)*200);
+
             }
             text.setText('Score: ' + score); });
 
-
-
-    }
-    
-    function update()
-    {
     }
     </script>
 
