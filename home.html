@@ -39,10 +39,12 @@
         this.load.image('coin', 'assets/coins_icon.png');
         this.load.image('coin_back', 'assets/coins_back.png');
         this.load.image('tbb', 'assets/total_bet_back.png');
+        this.load.image('plus', 'assets/plus.png');
+        this.load.image('minus', 'assets/minus.png');
 
     }
 
-    var scoretext;
+    var scoreText;
     var score = 0;
 
     var rand1, rand2, rand3;
@@ -59,13 +61,14 @@
         this.add.image(400, 50, 'coin_back');
         this.add.image(200, 50, 'coin');
         this.add.image(500, 990, 'tbb');
+        this.add.image(780, 990, 'plus');
+        this.add.image(220, 990, 'minus');
 
         item1 = this.add.image(690, 480, '1');
         item2 = this.add.image(960, 480, '2');
         item3 = this.add.image(1230, 480, '3');
 
-        text = this.add.text(820, 60, 'Score: 0', { fill: '#FFFFFF', fontSize: 36});
-        text2 = this.add.text(1000, 100, '', {fill: '#FFFFFF', fontSize: 32});
+        scoreText = this.add.text(820, 60, 'Score: 0', { fill: '#FFFFFF', fontSize: 36});
 
         const spinButton = this.add.image(1300, 1008, 'spin');
         spinButton.setInteractive();
@@ -85,7 +88,7 @@
                 score+= rand1*100+((rand1-1)*200);
 
             }
-            scoretext.setText('Score: ' + score); });
+            scoreText.setText('Score: ' + score); });
 
     }
     </script>
