@@ -30,18 +30,24 @@
         this.load.image('upper_back', 'assets/upper_back.png');
         this.load.image('lower_back', 'assets/lower_back.png');
         this.load.image('win_back', 'assets/win_back.png');
-        this.load.image('spin', 'assets/spin/spin_button_animation_00000.png');
+        this.load.image('spin', 'assets/spin_button.png');
 
         this.load.image('1', 'assets/5_cherry.png');
         this.load.image('2', 'assets/8_bar.png');
         this.load.image('3', 'assets/9_seven.png');
 
+        this.load.image('coin', 'assets/coins_icon.png');
+        this.load.image('coin_back', 'assets/coins_back.png');
+        this.load.image('tbb', 'assets/total_bet_back.png');
+
     }
 
-    var text;
+    var scoretext;
     var score = 0;
+
     var rand1, rand2, rand3;
     var item1, item2, item3;
+    
     function create ()
     {
 
@@ -49,7 +55,10 @@
         this.add.image(960, 60, 'upper_back');
         this.add.image(960, 990, 'lower_back');
         this.add.image(960, 80, 'win_back');
-        this.add.image(960, 1008, 'spin');
+
+        this.add.image(400, 50, 'coin_back');
+        this.add.image(200, 50, 'coin');
+        this.add.image(500, 990, 'tbb');
 
         item1 = this.add.image(690, 480, '1');
         item2 = this.add.image(960, 480, '2');
@@ -58,7 +67,7 @@
         text = this.add.text(820, 60, 'Score: 0', { fill: '#FFFFFF', fontSize: 36});
         text2 = this.add.text(1000, 100, '', {fill: '#FFFFFF', fontSize: 32});
 
-        const spinButton = this.add.image(960, 1008, 'spin');
+        const spinButton = this.add.image(1300, 1008, 'spin');
         spinButton.setInteractive();
 
         spinButton.on('pointerdown', () => { 
@@ -76,7 +85,7 @@
                 score+= rand1*100+((rand1-1)*200);
 
             }
-            text.setText('Score: ' + score); });
+            scoretext.setText('Score: ' + score); });
 
     }
     </script>
