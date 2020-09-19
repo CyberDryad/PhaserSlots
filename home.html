@@ -29,7 +29,10 @@
         this.load.image('back', 'assets/back.jpg');
         this.load.image('upper_back', 'assets/upper_back.png');
         this.load.image('lower_back', 'assets/lower_back.png');
+        this.load.image('spin', 'assets/spin/spin_button_animation_00000.png');
+
     }
+
 
     function create ()
     {
@@ -37,6 +40,17 @@
         this.add.image(960, 540, 'back');
         this.add.image(960, 60, 'upper_back');
         this.add.image(960, 990, 'lower_back');
+        this.add.image(960, 1008, 'spin');
+
+
+        const spinButton = this.add.image(960, 1008, 'spin');
+        spinButton.setInteractive();
+
+        spinButton.on('pointerover', () => { console.log('pointerover'); });
+
+    }
+    function update()
+    {
     }
     </script>
 
