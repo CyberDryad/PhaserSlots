@@ -32,10 +32,15 @@
         this.load.image('win_back', 'assets/win_back.png');
         this.load.image('spin', 'assets/spin/spin_button_animation_00000.png');
 
+        this.load.image('1', 'assets/5_cherry.png');
+        this.load.image('2', 'assets/8_bar.png');
+        this.load.image('3', 'assets/9_seven.png');
+
     }
 
     var text;
     var score = 0;
+    var out;
     function create ()
     {
 
@@ -52,8 +57,23 @@
 
         spinButton.on('pointerover', () => { console.log('pointerover'); });
         spinButton.on('pointerdown', () => { console.log('pointerdown'); });
-        spinButton.on('pointerdown', () => { score++; });
-        spinButton.on('pointerdown', () => {text.setText('Score: ' + score); });
+        spinButton.on('pointerdown', () => { 
+            out=(Math.floor(Math.random() * 27));
+            if (out == 0)
+            {
+                score+=100;
+            }
+            else if(out == 1)
+            {
+                score+=300;
+            }
+            else if(out == 2)
+            {
+                score+=700;
+            }
+            text.setText('Score: ' + score); });
+
+
 
     }
     
