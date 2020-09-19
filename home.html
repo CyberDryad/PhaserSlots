@@ -55,7 +55,7 @@
         item2 = this.add.image(960, 480, '2');
         item3 = this.add.image(1230, 480, '3');
 
-        text = this.add.text(960, 80, '', { fill: '#00ff00' });
+        text = this.add.text(820, 60, 'Score: 0', { fill: '#FFFFFF', fontSize: 36});
 
         const spinButton = this.add.image(960, 1008, 'spin');
         spinButton.setInteractive();
@@ -72,7 +72,7 @@
 
             if(rand1 == rand2 && rand2 == rand3)
             {
-                score+=rand1*100;
+                score+=rand1*100+((rand1-1)*200);
             }
             text.setText('Score: ' + score); });
 
