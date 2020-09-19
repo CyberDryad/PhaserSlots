@@ -48,7 +48,7 @@
     var score = 0;
 
     var coinText;
-    var coin = 1000;
+    var coin = 10000;
 
     var betText;
     var bet = 0;
@@ -98,21 +98,40 @@
             if(rand1 == rand2 && rand2 == rand3)
             {
                 score+= rand1*100+((rand1-1)*200);
+                coin+= bet*rand1*2;
 
             }
-            scoreText.setText('Score: ' + score); });
+            else
+            {
+                coin-=bet;
+                if(coin < bet)
+                {
+                    bet = coin;
+                }
+            }
+            scoreText.setText('Score: ' + score);
+            betText.setText(bet); 
+            coinText.setText(coin);
+         });
 
-        plusButton.on('poniterhover', () => {console.log("hover")});
         plusButton.on('pointerdown', () => { 
-            bet += 100;
-            betText.setText(bet); });
+            if(bet < coin)
+            {
+                bet += 100;
+                coin -=100;
+                betText.setText(bet); 
+                coinText.setText(coin);
+            }
+        });
 
         minusButton.on('pointerdown', () => { 
-            if(bet > 0)
+            if(bet != 0)
             {
-                bet -= 100; 
+                bet -= 100;
+                coin +=100;
+                betText.setText(bet); 
+                coinText.setText(coin);
             }
-            betText.setText(bet);
         });
         
     }
