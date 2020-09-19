@@ -40,7 +40,12 @@
 
     var text;
     var score = 0;
-    var out;
+    var rand1;
+    var rand2;
+    var rand3;
+    var item1;
+    var item2;
+    var item3;
     function create ()
     {
 
@@ -50,6 +55,10 @@
         this.add.image(960, 80, 'win_back');
         this.add.image(960, 1008, 'spin');
 
+        item1 = this.add.image(690, 480, '1');
+        item2 = this.add.image(960, 480, '2');
+        item3 = this.add.image(1230, 480, '3');
+
         text = this.add.text(960, 80, '', { fill: '#00ff00' });
 
         const spinButton = this.add.image(960, 1008, 'spin');
@@ -58,19 +67,13 @@
         spinButton.on('pointerover', () => { console.log('pointerover'); });
         spinButton.on('pointerdown', () => { console.log('pointerdown'); });
         spinButton.on('pointerdown', () => { 
-            out=(Math.floor(Math.random() * 27));
-            if (out == 0)
-            {
-                score+=100;
-            }
-            else if(out == 1)
-            {
-                score+=300;
-            }
-            else if(out == 2)
-            {
-                score+=700;
-            }
+            rand1=(Math.floor(Math.random() * 3)+1);
+            rand2=(Math.floor(Math.random() * 3)+1);
+            rand3=(Math.floor(Math.random() * 3)+1);
+            item1.setTexture( String(rand1));
+            item2.setTexture( String(rand2));
+            item3.setTexture( String(rand3));
+        
             text.setText('Score: ' + score); });
 
 
